@@ -1,21 +1,41 @@
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { gsap } from 'gsap';
+import { toast } from "sonner";
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const subheadingRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const emailFormRef = useRef<HTMLFormElement>(null);
+  
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email || !email.includes('@')) {
+      toast.error('Please enter a valid email address');
+      return;
+    }
+    
+    // Here you would typically send the email to your backend or email service
+    console.log('Email submitted:', email);
+    toast.success('Thank you for your interest! We\'ll keep you updated.');
+    setEmail('');
+  };
 
   useEffect(() => {
     const section = sectionRef.current;
     const heading = headingRef.current;
     const subheading = subheadingRef.current;
     const cta = ctaRef.current;
+    const emailForm = emailFormRef.current;
 
-    if (section && heading && subheading && cta) {
+    if (section && heading && subheading && cta && emailForm) {
       const tl = gsap.timeline();
       
       tl.from(heading, { 
@@ -30,6 +50,12 @@ const HeroSection = () => {
         duration: 1, 
         ease: "power3.out" 
       }, "-=0.6")
+      .from(emailForm, {
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        ease: "power3.out"
+      }, "-=0.5")
       .from(cta, { 
         opacity: 0, 
         y: 20, 
@@ -66,6 +92,27 @@ const HeroSection = () => {
           Sign up today and be the first to access MindPal. Transform your self-awareness and well-being 
           with our intelligent emotional journal. <span className="font-medium">Special launch offer.</span>
         </p>
+        
+        <form 
+          ref={emailFormRef}
+          onSubmit={handleSubmit} 
+          className="flex flex-col sm:flex-row justify-center items-center gap-3 mb-6 max-w-lg mx-auto"
+        >
+          <Input
+            type="email"
+            placeholder="Enter your email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full md:flex-1 h-12 bg-white/80 backdrop-blur-sm border-sage-300 focus:border-mindpal-500"
+            required
+          />
+          <Button 
+            type="submit" 
+            className="btn-orange w-full sm:w-auto h-12 text-base whitespace-nowrap" 
+          >
+            Get Early Access
+          </Button>
+        </form>
         
         <div ref={ctaRef} className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <Button className="btn-primary text-base px-8 py-6">

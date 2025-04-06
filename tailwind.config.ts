@@ -45,6 +45,20 @@ export default {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))'
 				},
+				orange: {
+					DEFAULT: 'hsl(var(--orange))',
+					foreground: 'hsl(var(--orange-foreground))',
+					50: '#fff8ed',
+					100: '#ffefd6',
+					200: '#ffd9a8',
+					300: '#ffbd71',
+					400: '#ff9839',
+					500: '#ff7b11',
+					600: '#fe5f00',
+					700: '#d34a01',
+					800: '#a73a08',
+					900: '#87320c',
+				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
 					foreground: 'hsl(var(--popover-foreground))'

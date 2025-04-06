@@ -27,6 +27,9 @@
 
     --accent: 42 80% 70%; 
     --accent-foreground: 222.2 47.4% 11.2%;
+    
+    --orange: 30 100% 60%;
+    --orange-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -84,5 +87,9 @@
   
   .btn-accent {
     @apply bg-cream-400 hover:bg-cream-500 text-sage-900 font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-orange {
+    @apply bg-[hsl(var(--orange))] hover:bg-[hsl(var(--orange))/90] text-[hsl(var(--orange-foreground))] font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg;
   }
 }
