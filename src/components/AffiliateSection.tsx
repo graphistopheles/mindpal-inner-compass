@@ -8,7 +8,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 gsap.registerPlugin(ScrollTrigger);
 
 const AffiliateSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -30,6 +30,16 @@ const AffiliateSection = () => {
     }
   }, []);
 
+  // Helper function to render the title with proper formatting based on language
+  const renderTitle = () => {
+    if (language === 'en') {
+      return t('affiliate_title');
+    } else {
+      // For Spanish, may need special formatting if needed
+      return t('affiliate_title');
+    }
+  };
+
   return (
     <section 
       ref={sectionRef}
@@ -41,7 +51,7 @@ const AffiliateSection = () => {
         className="max-w-4xl mx-auto text-center"
       >
         <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
-          {t('affiliate_title')}
+          {renderTitle()}
         </h2>
         
         <p className="text-lg text-sage-100 mb-8 max-w-3xl mx-auto">

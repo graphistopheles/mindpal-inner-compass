@@ -8,7 +8,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 gsap.registerPlugin(ScrollTrigger);
 
 const ProblemSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
@@ -61,6 +61,26 @@ const ProblemSection = () => {
     }
   }, []);
 
+  // Helper function to properly handle the title with the highlighted text
+  const renderTitle = () => {
+    const titleParts = t('problem_title').split('You\'re not alone');
+    if (language === 'en') {
+      return (
+        <>
+          {titleParts[0]}<span className="gradient-text">You're not alone.</span>
+        </>
+      );
+    } else {
+      // For Spanish, split by "No estás solo" to properly highlight it
+      const esTitle = t('problem_title').split('No estás solo');
+      return (
+        <>
+          {esTitle[0]}<span className="gradient-text">No estás solo.</span>
+        </>
+      );
+    }
+  };
+
   return (
     <section 
       ref={sectionRef}
@@ -72,7 +92,7 @@ const ProblemSection = () => {
           ref={headingRef}
           className="text-3xl md:text-4xl font-serif font-bold mb-6 text-center"
         >
-          {t('problem_title').split('You\'re not alone')[0]}<span className="gradient-text">You're not alone.</span>
+          {renderTitle()}
         </h2>
         
         <p 

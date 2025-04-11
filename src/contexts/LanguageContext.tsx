@@ -84,6 +84,20 @@ const translations = {
     'faq_title': 'Frequently Asked Questions',
     'more_questions': 'Have more questions?',
     'contact_support': 'Contact our support team',
+    
+    // FAQ Questions and Answers
+    'faq1_question': 'How does MindPal protect my privacy and data?',
+    'faq1_answer': 'MindPal takes your privacy seriously. All your journal entries and personal data are encrypted and securely stored. We never share your data with third parties without your explicit consent. You can export or delete your data at any time.',
+    'faq2_question': 'What happens after I purchase an early access plan?',
+    'faq2_answer': 'Once you purchase an early access plan, you\'ll receive an email with instructions on how to set up your account. You\'ll have immediate access to all available features, and as we roll out new capabilities, you\'ll be among the first to try them.',
+    'faq3_question': 'Does MindPal replace professional therapy?',
+    'faq3_answer': 'No, MindPal is not a replacement for professional mental health care. It\'s a complementary tool that can help you gain insights into your emotional patterns and enhance self-awareness. If you\'re experiencing significant mental health challenges, please consult with a qualified healthcare provider.',
+    'faq4_question': 'On what devices will I be able to use MindPal?',
+    'faq4_answer': 'MindPal is a responsive web application that works on any device with a modern web browser. Whether you\'re using a smartphone, tablet, or desktop computer, you\'ll have a seamless experience optimized for your screen size.',
+    'faq5_question': 'Can I cancel my subscription?',
+    'faq5_answer': 'Yes, you can cancel your subscription at any time. For monthly plans (after launch), cancellation will stop future billing cycles. Your access will continue until the end of your current billing period. For lifetime access plans, there\'s no need to cancel as they\'re one-time purchases.',
+    'faq6_question': 'Is there a money-back guarantee?',
+    'faq6_answer': 'Yes, we offer a 30-day money-back guarantee for all our plans. If you\'re not satisfied with MindPal for any reason, simply contact our support team within 30 days of purchase for a full refund.',
 
     // Language Switcher
     'language_es': 'Español',
@@ -163,6 +177,20 @@ const translations = {
     'faq_title': 'Preguntas Frecuentes',
     'more_questions': '¿Tienes más preguntas?',
     'contact_support': 'Contacta a nuestro equipo de soporte',
+    
+    // FAQ Questions and Answers
+    'faq1_question': '¿Cómo protege MindPal mi privacidad y datos?',
+    'faq1_answer': 'MindPal toma tu privacidad muy en serio. Todas tus entradas de diario y datos personales están encriptados y almacenados de forma segura. Nunca compartimos tus datos con terceros sin tu consentimiento explícito. Puedes exportar o eliminar tus datos en cualquier momento.',
+    'faq2_question': '¿Qué sucede después de comprar un plan de acceso anticipado?',
+    'faq2_answer': 'Una vez que compres un plan de acceso anticipado, recibirás un correo electrónico con instrucciones sobre cómo configurar tu cuenta. Tendrás acceso inmediato a todas las funciones disponibles, y a medida que implementemos nuevas capacidades, serás de los primeros en probarlas.',
+    'faq3_question': '¿MindPal reemplaza la terapia profesional?',
+    'faq3_answer': 'No, MindPal no es un reemplazo para la atención profesional de salud mental. Es una herramienta complementaria que puede ayudarte a obtener perspectivas sobre tus patrones emocionales y mejorar tu autoconciencia. Si estás experimentando desafíos significativos de salud mental, consulta con un proveedor de atención médica calificado.',
+    'faq4_question': '¿En qué dispositivos podré usar MindPal?',
+    'faq4_answer': 'MindPal es una aplicación web responsiva que funciona en cualquier dispositivo con un navegador web moderno. Ya sea que estés usando un smartphone, tablet o computadora de escritorio, tendrás una experiencia fluida optimizada para el tamaño de tu pantalla.',
+    'faq5_question': '¿Puedo cancelar mi suscripción?',
+    'faq5_answer': 'Sí, puedes cancelar tu suscripción en cualquier momento. Para planes mensuales (después del lanzamiento), la cancelación detendrá los ciclos de facturación futuros. Tu acceso continuará hasta el final de tu período de facturación actual. Para planes de acceso de por vida, no es necesario cancelar ya que son compras únicas.',
+    'faq6_question': '¿Hay garantía de devolución de dinero?',
+    'faq6_answer': 'Sí, ofrecemos una garantía de devolución de dinero de 30 días para todos nuestros planes. Si no estás satisfecho con MindPal por cualquier motivo, simplemente contacta a nuestro equipo de soporte dentro de los 30 días posteriores a la compra para obtener un reembolso completo.',
 
     // Language Switcher
     'language_es': 'Español',
