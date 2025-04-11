@@ -4,10 +4,12 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const PricingSection = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const subheadingRef = useRef<HTMLParagraphElement>(null);
@@ -71,15 +73,14 @@ const PricingSection = () => {
           ref={headingRef}
           className="text-3xl md:text-4xl font-serif font-bold mb-4 text-center"
         >
-          Be a MindPal <span className="gradient-text">Founder</span>
+          {t('pricing_title')} <span className="gradient-text">{t('founder')}</span>
         </h2>
         
         <p 
           ref={subheadingRef}
           className="text-lg text-sage-700 max-w-3xl mx-auto text-center mb-16"
         >
-          Take advantage of our limited time "green sale" offer. Support our launch and secure your 
-          premium access with an unrepeatable discount.
+          {t('pricing_subtitle')}
         </p>
         
         <div 
@@ -88,13 +89,13 @@ const PricingSection = () => {
         >
           <div className="pricing-card bg-white rounded-2xl shadow-lg overflow-hidden">
             <div className="p-6 bg-mindpal-100">
-              <h3 className="text-xl font-medium text-sage-800">Annual Early Access</h3>
+              <h3 className="text-xl font-medium text-sage-800">{t('annual_access')}</h3>
               <div className="mt-4 flex items-end">
                 <span className="text-4xl font-bold text-mindpal-700">$49</span>
-                <span className="text-sage-600 ml-2">/ year</span>
+                <span className="text-sage-600 ml-2">/ {t('year')}</span>
               </div>
               <p className="text-sage-600 mt-2 text-sm">
-                <span className="line-through">$99</span> Save 50%
+                <span className="line-through">$99</span> {t('save')} 50%
               </p>
             </div>
             
@@ -102,41 +103,41 @@ const PricingSection = () => {
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start">
                   <Check className="w-5 h-5 text-mindpal-500 mr-3 mt-0.5" />
-                  <span className="text-sage-700">Full access to all features</span>
+                  <span className="text-sage-700">{t('full_access')}</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="w-5 h-5 text-mindpal-500 mr-3 mt-0.5" />
-                  <span className="text-sage-700">Unlimited journal entries</span>
+                  <span className="text-sage-700">{t('unlimited_journal')}</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="w-5 h-5 text-mindpal-500 mr-3 mt-0.5" />
-                  <span className="text-sage-700">Basic insight reports</span>
+                  <span className="text-sage-700">{t('basic_insights')}</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="w-5 h-5 text-mindpal-500 mr-3 mt-0.5" />
-                  <span className="text-sage-700">Email support</span>
+                  <span className="text-sage-700">{t('email_support')}</span>
                 </li>
               </ul>
               
               <Button className="w-full btn-primary">
-                Get Annual Access
+                {t('get_annual')}
               </Button>
             </div>
           </div>
           
           <div className="pricing-card bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-mindpal-400 transform scale-105 z-10">
             <div className="absolute top-0 right-0 bg-cream-400 text-sage-800 px-4 py-1 text-sm font-medium">
-              RECOMMENDED
+              {t('recommended')}
             </div>
             
             <div className="p-6 bg-mindpal-200">
-              <h3 className="text-xl font-medium text-sage-800">Lifetime Founder Access</h3>
+              <h3 className="text-xl font-medium text-sage-800">{t('lifetime_access')}</h3>
               <div className="mt-4 flex items-end">
                 <span className="text-4xl font-bold text-mindpal-700">$199</span>
-                <span className="text-sage-600 ml-2">once</span>
+                <span className="text-sage-600 ml-2">{t('once')}</span>
               </div>
               <p className="text-sage-600 mt-2 text-sm">
-                <span className="line-through">$499</span> Save 60%
+                <span className="line-through">$499</span> {t('save')} 60%
               </p>
             </div>
             
@@ -144,45 +145,45 @@ const PricingSection = () => {
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start">
                   <Check className="w-5 h-5 text-mindpal-500 mr-3 mt-0.5" />
-                  <span className="text-sage-700">Lifetime access to all features</span>
+                  <span className="text-sage-700">{t('lifetime_features')}</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="w-5 h-5 text-mindpal-500 mr-3 mt-0.5" />
-                  <span className="text-sage-700">Unlimited journal entries</span>
+                  <span className="text-sage-700">{t('unlimited_journal')}</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="w-5 h-5 text-mindpal-500 mr-3 mt-0.5" />
-                  <span className="text-sage-700">Advanced analytics & insights</span>
+                  <span className="text-sage-700">{t('advanced_analytics')}</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="w-5 h-5 text-mindpal-500 mr-3 mt-0.5" />
-                  <span className="text-sage-700">Priority support</span>
+                  <span className="text-sage-700">{t('priority_support')}</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="w-5 h-5 text-mindpal-500 mr-3 mt-0.5" />
-                  <span className="text-sage-700">Early access to new features</span>
+                  <span className="text-sage-700">{t('early_access')}</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="w-5 h-5 text-mindpal-500 mr-3 mt-0.5" />
-                  <span className="text-sage-700">Downloadable data exports</span>
+                  <span className="text-sage-700">{t('data_exports')}</span>
                 </li>
               </ul>
               
               <Button className="w-full bg-mindpal-600 hover:bg-mindpal-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
-                I Want Lifetime Access
+                {t('want_lifetime')}
               </Button>
             </div>
           </div>
           
           <div className="pricing-card bg-white rounded-2xl shadow-lg overflow-hidden">
             <div className="p-6 bg-mindpal-100">
-              <h3 className="text-xl font-medium text-sage-800">Monthly (Post-Launch)</h3>
+              <h3 className="text-xl font-medium text-sage-800">{t('monthly_access')}</h3>
               <div className="mt-4 flex items-end">
                 <span className="text-4xl font-bold text-mindpal-700">$9.99</span>
-                <span className="text-sage-600 ml-2">/ month</span>
+                <span className="text-sage-600 ml-2">/ {t('month')}</span>
               </div>
               <p className="text-sage-600 mt-2 text-sm">
-                Regular price after launch
+                {t('regular_price')}
               </p>
             </div>
             
@@ -190,24 +191,24 @@ const PricingSection = () => {
               <ul className="space-y-4 mb-8">
                 <li className="flex items-start">
                   <Check className="w-5 h-5 text-mindpal-500 mr-3 mt-0.5" />
-                  <span className="text-sage-700">Access to all basic features</span>
+                  <span className="text-sage-700">{t('basic_features')}</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="w-5 h-5 text-mindpal-500 mr-3 mt-0.5" />
-                  <span className="text-sage-700">Limited journal entries</span>
+                  <span className="text-sage-700">{t('limited_journal')}</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="w-5 h-5 text-mindpal-500 mr-3 mt-0.5" />
-                  <span className="text-sage-700">Basic insights</span>
+                  <span className="text-sage-700">{t('basic_insights_only')}</span>
                 </li>
                 <li className="flex items-start">
                   <Check className="w-5 h-5 text-mindpal-500 mr-3 mt-0.5" />
-                  <span className="text-sage-700">Community support</span>
+                  <span className="text-sage-700">{t('community_support')}</span>
                 </li>
               </ul>
               
               <Button variant="outline" className="w-full border-mindpal-400 text-mindpal-600 hover:bg-mindpal-50">
-                Join Waitlist
+                {t('join_waitlist')}
               </Button>
             </div>
           </div>
@@ -216,8 +217,7 @@ const PricingSection = () => {
         <div className="mt-12 max-w-3xl mx-auto text-center">
           <div className="bg-white px-8 py-6 rounded-xl shadow-md">
             <p className="text-sage-700 font-medium">
-              <span className="text-mindpal-600">100% Satisfaction Guaranteed.</span> If MindPal doesn't meet your expectations 
-              in the first 30 days, we'll refund your purchase, no questions asked.
+              <span className="text-mindpal-600">{t('satisfaction_guarantee')}</span> {t('refund_policy')}
             </p>
           </div>
         </div>

@@ -6,32 +6,60 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const testimonials = [
-  {
-    quote: "I felt stress was overcoming me. MindPal helped me understand my anxiety spikes and find moments of calm in my day to day life.",
-    name: "Camila R.",
-    title: "Graphic Designer",
-    image: "https://randomuser.me/api/portraits/women/45.jpg"
-  },
-  {
-    quote: "It's the perfect complement to my therapy. I can keep a detailed record of my emotions between sessions and share insights with my psychologist.",
-    name: "Javier M.",
-    title: "Software Engineer",
-    image: "https://randomuser.me/api/portraits/men/32.jpg"
-  },
-  {
-    quote: "I always wanted to understand myself better. MindPal revealed patterns I was unaware of and I feel more connected to myself.",
-    name: "Sofia L.",
-    title: "Teacher",
-    image: "https://randomuser.me/api/portraits/women/68.jpg"
-  }
-];
-
 const TestimonialsSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const testimonialsRef = useRef<HTMLDivElement>(null);
+
+  // Define testimonials based on current language
+  const getTestimonials = () => {
+    if (language === 'en') {
+      return [
+        {
+          quote: "I felt stress was overcoming me. MindPal helped me understand my anxiety spikes and find moments of calm in my day to day life.",
+          name: "Camila R.",
+          title: "Graphic Designer",
+          image: "https://randomuser.me/api/portraits/women/45.jpg"
+        },
+        {
+          quote: "It's the perfect complement to my therapy. I can keep a detailed record of my emotions between sessions and share insights with my psychologist.",
+          name: "Javier M.",
+          title: "Software Engineer",
+          image: "https://randomuser.me/api/portraits/men/32.jpg"
+        },
+        {
+          quote: "I always wanted to understand myself better. MindPal revealed patterns I was unaware of and I feel more connected to myself.",
+          name: "Sofia L.",
+          title: "Teacher",
+          image: "https://randomuser.me/api/portraits/women/68.jpg"
+        }
+      ];
+    } else {
+      return [
+        {
+          quote: "Sentía que el estrés me estaba superando. MindPal me ayudó a entender mis picos de ansiedad y encontrar momentos de calma en mi día a día.",
+          name: "Camila R.",
+          title: "Diseñadora Gráfica",
+          image: "https://randomuser.me/api/portraits/women/45.jpg"
+        },
+        {
+          quote: "Es el complemento perfecto para mi terapia. Puedo mantener un registro detallado de mis emociones entre sesiones y compartir ideas con mi psicólogo.",
+          name: "Javier M.",
+          title: "Ingeniero de Software",
+          image: "https://randomuser.me/api/portraits/men/32.jpg"
+        },
+        {
+          quote: "Siempre quise entenderme mejor. MindPal reveló patrones de los que no era consciente y me siento más conectada conmigo misma.",
+          name: "Sofia L.",
+          title: "Profesora",
+          image: "https://randomuser.me/api/portraits/women/68.jpg"
+        }
+      ];
+    }
+  };
+
+  const testimonials = getTestimonials();
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -67,6 +95,24 @@ const TestimonialsSection = () => {
     }
   }, []);
 
+  const renderTitle = () => {
+    if (language === 'en') {
+      const parts = t('testimonials_title').split('for you');
+      return (
+        <>
+          {parts[0]}<span className="gradient-text">for you</span>
+        </>
+      );
+    } else {
+      const parts = t('testimonials_title').split('por ti');
+      return (
+        <>
+          {parts[0]}<span className="gradient-text">por ti</span>
+        </>
+      );
+    }
+  };
+
   return (
     <section 
       ref={sectionRef}
@@ -78,7 +124,7 @@ const TestimonialsSection = () => {
           ref={headingRef}
           className="text-3xl md:text-4xl font-serif font-bold mb-16 text-center"
         >
-          {t('testimonials_title').split('for you')[0]}<span className="gradient-text">for you</span>
+          {renderTitle()}
         </h2>
         
         <div 

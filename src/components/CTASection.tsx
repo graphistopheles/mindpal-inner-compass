@@ -10,7 +10,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 gsap.registerPlugin(ScrollTrigger);
 
 const CTASection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { toast } = useToast();
   const [email, setEmail] = useState('');
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -40,8 +40,8 @@ const CTASection = () => {
     // Simple email validation
     if (!email.includes('@') || email.trim() === '') {
       toast({
-        title: "Invalid Email",
-        description: "Please enter a valid email address.",
+        title: language === 'en' ? "Invalid Email" : "Correo Inválido",
+        description: language === 'en' ? "Please enter a valid email address." : "Por favor ingresa un correo electrónico válido.",
         variant: "destructive"
       });
       return;
@@ -51,11 +51,29 @@ const CTASection = () => {
     console.log('Email submitted:', email);
     
     toast({
-      title: "Thank you!",
-      description: "We'll keep you updated about MindPal's launch.",
+      title: language === 'en' ? "Thank you!" : "¡Gracias!",
+      description: language === 'en' ? "We'll keep you updated about MindPal's launch." : "Te mantendremos informado sobre el lanzamiento de MindPal.",
     });
     
     setEmail('');
+  };
+
+  const renderTitle = () => {
+    if (language === 'en') {
+      const parts = t('cta_title').split('self-knowledge');
+      return (
+        <>
+          {parts[0]}<span className="gradient-text">self-knowledge?</span>
+        </>
+      );
+    } else {
+      const parts = t('cta_title').split('autoconocimiento');
+      return (
+        <>
+          {parts[0]}<span className="gradient-text">autoconocimiento?</span>
+        </>
+      );
+    }
   };
 
   return (
@@ -69,7 +87,7 @@ const CTASection = () => {
         className="max-w-4xl mx-auto text-center"
       >
         <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">
-          {t('cta_title').split('self-knowledge')[0]}<span className="gradient-text">self-knowledge?</span>
+          {renderTitle()}
         </h2>
         
         <p className="text-lg text-sage-700 mb-10 max-w-2xl mx-auto">
