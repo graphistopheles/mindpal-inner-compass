@@ -2,10 +2,13 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { X, Menu } from 'lucide-react';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -36,25 +39,31 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
           <div className="flex space-x-6">
-            <a href="#features" className="text-sage-700 hover:text-mindpal-600 transition-colors">Features</a>
-            <a href="#benefits" className="text-sage-700 hover:text-mindpal-600 transition-colors">Benefits</a>
-            <a href="#pricing" className="text-sage-700 hover:text-mindpal-600 transition-colors">Pricing</a>
-            <a href="#faq" className="text-sage-700 hover:text-mindpal-600 transition-colors">FAQ</a>
+            <a href="#features" className="text-sage-700 hover:text-mindpal-600 transition-colors">{t('features')}</a>
+            <a href="#benefits" className="text-sage-700 hover:text-mindpal-600 transition-colors">{t('benefits')}</a>
+            <a href="#pricing" className="text-sage-700 hover:text-mindpal-600 transition-colors">{t('pricing')}</a>
+            <a href="#faq" className="text-sage-700 hover:text-mindpal-600 transition-colors">{t('faq')}</a>
           </div>
           
-          <Button className="btn-primary">
-            Become a Founder
-          </Button>
+          <div className="flex items-center space-x-6">
+            <LanguageSwitcher />
+            <Button className="btn-primary">
+              {t('become_founder')}
+            </Button>
+          </div>
         </div>
         
         {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-sage-800"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center space-x-4">
+          <LanguageSwitcher />
+          <button 
+            className="text-sage-800"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
       
       {/* Mobile Menu */}
@@ -66,35 +75,35 @@ const Navbar = () => {
               className="text-sage-700 hover:text-mindpal-600 transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              Features
+              {t('features')}
             </a>
             <a 
               href="#benefits" 
               className="text-sage-700 hover:text-mindpal-600 transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              Benefits
+              {t('benefits')}
             </a>
             <a 
               href="#pricing" 
               className="text-sage-700 hover:text-mindpal-600 transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              Pricing
+              {t('pricing')}
             </a>
             <a 
               href="#faq" 
               className="text-sage-700 hover:text-mindpal-600 transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              FAQ
+              {t('faq')}
             </a>
             
             <Button 
               className="btn-primary mt-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              Become a Founder
+              {t('become_founder')}
             </Button>
           </div>
         </div>
