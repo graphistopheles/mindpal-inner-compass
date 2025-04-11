@@ -3,10 +3,12 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Brain, Sparkles, Heart, User } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const BenefitsSection = () => {
+  const { t, language } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const benefitsRef = useRef<HTMLDivElement>(null);
@@ -45,6 +47,26 @@ const BenefitsSection = () => {
     }
   }, []);
 
+  // Helper function to properly handle the title with the highlighted text
+  const renderTitle = () => {
+    if (language === 'en') {
+      const parts = t('benefits_title').split('transformation');
+      return (
+        <>
+          {parts[0]}<span className="gradient-text">transformation</span>
+        </>
+      );
+    } else {
+      // For Spanish, split by "transformación" to properly highlight it
+      const esTitle = t('benefits_title').split('transformación');
+      return (
+        <>
+          {esTitle[0]}<span className="gradient-text">transformación</span>
+        </>
+      );
+    }
+  };
+
   return (
     <section 
       ref={sectionRef}
@@ -56,7 +78,7 @@ const BenefitsSection = () => {
           ref={headingRef}
           className="text-3xl md:text-4xl font-serif font-bold mb-16 text-center"
         >
-          More than a journal, a personal <span className="gradient-text">transformation</span>
+          {renderTitle()}
         </h2>
         
         <div 
@@ -71,9 +93,9 @@ const BenefitsSection = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-medium mb-3">Gain Mental Clarity</h3>
+                <h3 className="text-xl font-medium mb-3">{t('mental_clarity_title')}</h3>
                 <p className="text-sage-600">
-                  Say goodbye to confusion. Understand the why of your emotions and make more conscious decisions based on clear self-knowledge.
+                  {t('mental_clarity_text')}
                 </p>
               </div>
             </div>
@@ -87,9 +109,9 @@ const BenefitsSection = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-medium mb-3">Develop Resilience</h3>
+                <h3 className="text-xl font-medium mb-3">{t('resilience_title')}</h3>
                 <p className="text-sage-600">
-                  Learn to navigate life's ups and downs with greater strength and emotional balance. Transform challenges into growth opportunities.
+                  {t('resilience_text')}
                 </p>
               </div>
             </div>
@@ -103,9 +125,9 @@ const BenefitsSection = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-medium mb-3">Improve your Well-Being</h3>
+                <h3 className="text-xl font-medium mb-3">{t('wellbeing_title')}</h3>
                 <p className="text-sage-600">
-                  Reduce stress and anxiety by cultivating a healthier, more compassionate relationship with yourself and your emotions.
+                  {t('wellbeing_text')}
                 </p>
               </div>
             </div>
@@ -119,9 +141,9 @@ const BenefitsSection = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-medium mb-3">Enhance your Self-Awareness</h3>
+                <h3 className="text-xl font-medium mb-3">{t('awareness_title')}</h3>
                 <p className="text-sage-600">
-                  Discover deeper aspects of your personality and behavioral patterns that influence your daily life and relationships.
+                  {t('awareness_text')}
                 </p>
               </div>
             </div>
