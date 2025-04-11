@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,6 +40,7 @@ const faqs = [
 ];
 
 const FAQSection = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const faqsRef = useRef<HTMLDivElement>(null);
@@ -85,7 +87,7 @@ const FAQSection = () => {
           ref={headingRef}
           className="text-3xl md:text-4xl font-serif font-bold mb-16 text-center"
         >
-          Frequently Asked <span className="gradient-text">Questions</span>
+          {t('faq_title').split('Questions')[0]}<span className="gradient-text">Questions</span>
         </h2>
         
         <div ref={faqsRef}>
@@ -105,7 +107,7 @@ const FAQSection = () => {
         
         <div className="mt-12 text-center">
           <p className="text-sage-700">
-            Have more questions? <a href="#" className="text-mindpal-600 hover:text-mindpal-700 underline">Contact our support team</a>
+            {t('more_questions')} <a href="#" className="text-mindpal-600 hover:text-mindpal-700 underline">{t('contact_support')}</a>
           </p>
         </div>
       </div>

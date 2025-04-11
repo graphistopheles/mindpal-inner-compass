@@ -3,10 +3,12 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Lightbulb, Heart, Brain } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ProblemSection = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
@@ -70,16 +72,14 @@ const ProblemSection = () => {
           ref={headingRef}
           className="text-3xl md:text-4xl font-serif font-bold mb-6 text-center"
         >
-          Feeling like your emotions are taking over? <span className="gradient-text">You're not alone.</span>
+          {t('problem_title').split('You\'re not alone')[0]}<span className="gradient-text">You're not alone.</span>
         </h2>
         
         <p 
           ref={textRef}
           className="text-lg text-sage-700 max-w-3xl mx-auto text-center mb-16"
         >
-          In today's fast-paced environment, it's easy to feel disconnected from yourself. 
-          Stress, anxiety, or just plain confusion can cloud your day. Understanding your emotions 
-          is the first step toward a fuller, more conscious life.
+          {t('problem_text')}
         </p>
         
         <div 
@@ -90,9 +90,9 @@ const ProblemSection = () => {
             <div className="w-12 h-12 bg-mindpal-100 rounded-full flex items-center justify-center mb-6">
               <Brain className="text-mindpal-600 w-6 h-6" />
             </div>
-            <h3 className="text-xl font-medium mb-3 text-sage-800">Mental Fog</h3>
+            <h3 className="text-xl font-medium mb-3 text-sage-800">{t('mental_fog')}</h3>
             <p className="text-sage-600">
-              Feeling overwhelmed by emotions without understanding them leads to mental fog and difficulty making decisions.
+              {t('mental_fog_text')}
             </p>
           </div>
           
@@ -100,9 +100,9 @@ const ProblemSection = () => {
             <div className="w-12 h-12 bg-mindpal-100 rounded-full flex items-center justify-center mb-6">
               <Heart className="text-mindpal-600 w-6 h-6" />
             </div>
-            <h3 className="text-xl font-medium mb-3 text-sage-800">Emotional Disconnect</h3>
+            <h3 className="text-xl font-medium mb-3 text-sage-800">{t('emotional_disconnect')}</h3>
             <p className="text-sage-600">
-              Modern life pulls us away from emotional awareness, causing us to miss important signals from within.
+              {t('emotional_disconnect_text')}
             </p>
           </div>
           
@@ -110,9 +110,9 @@ const ProblemSection = () => {
             <div className="w-12 h-12 bg-mindpal-100 rounded-full flex items-center justify-center mb-6">
               <Lightbulb className="text-mindpal-600 w-6 h-6" />
             </div>
-            <h3 className="text-xl font-medium mb-3 text-sage-800">Missing Insights</h3>
+            <h3 className="text-xl font-medium mb-3 text-sage-800">{t('missing_insights')}</h3>
             <p className="text-sage-600">
-              Without reflection, we miss patterns and insights that could lead to personal growth and emotional balance.
+              {t('missing_insights_text')}
             </p>
           </div>
         </div>

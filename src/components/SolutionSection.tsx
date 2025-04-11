@@ -3,10 +3,12 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const SolutionSection = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -49,12 +51,11 @@ const SolutionSection = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div ref={contentRef} className="order-2 md:order-1">
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
-            <span className="gradient-text">MindPal:</span> Lighting your way to emotional well-being
+            <span className="gradient-text">MindPal:</span> {t('solution_title')}
           </h2>
           
           <p className="text-lg text-sage-700 mb-6">
-            We created MindPal to be your safe and personal space. An intuitive tool designed to help you record, 
-            understand and manage your daily emotions, fostering your emotional intelligence and resilience.
+            {t('solution_text')}
           </p>
           
           <ul className="space-y-4 mb-8">
@@ -64,7 +65,7 @@ const SolutionSection = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <p className="text-sage-700">A digital sanctuary for your emotional journey</p>
+              <p className="text-sage-700">{t('solution_point1')}</p>
             </li>
             <li className="flex items-start">
               <div className="mr-4 mt-1 text-mindpal-500">
@@ -72,7 +73,7 @@ const SolutionSection = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <p className="text-sage-700">Intelligent insights that evolve with you</p>
+              <p className="text-sage-700">{t('solution_point2')}</p>
             </li>
             <li className="flex items-start">
               <div className="mr-4 mt-1 text-mindpal-500">
@@ -80,12 +81,12 @@ const SolutionSection = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <p className="text-sage-700">Simple tools to navigate complex emotions</p>
+              <p className="text-sage-700">{t('solution_point3')}</p>
             </li>
           </ul>
           
           <Button className="btn-secondary">
-            Discover how it works
+            {t('discover_how')}
           </Button>
         </div>
         

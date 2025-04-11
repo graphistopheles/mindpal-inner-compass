@@ -5,10 +5,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const CTASection = () => {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const [email, setEmail] = useState('');
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -67,19 +69,18 @@ const CTASection = () => {
         className="max-w-4xl mx-auto text-center"
       >
         <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">
-          Ready to start your journey to <span className="gradient-text">self-knowledge?</span>
+          {t('cta_title').split('self-knowledge')[0]}<span className="gradient-text">self-knowledge?</span>
         </h2>
         
         <p className="text-lg text-sage-700 mb-10 max-w-2xl mx-auto">
-          If you haven't decided on a plan yet, leave us your email and we'll let you know about 
-          the official launch, news and exclusive content on emotional wellness.
+          {t('cta_text')}
         </p>
         
         <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
           <div className="flex flex-col sm:flex-row gap-4">
             <Input
               type="email"
-              placeholder="Your email address"
+              placeholder={t('your_email')}
               className="px-4 py-6 bg-white text-base"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -88,11 +89,11 @@ const CTASection = () => {
               type="submit" 
               className="btn-primary text-base px-8 whitespace-nowrap"
             >
-              Keep Me Informed
+              {t('keep_informed')}
             </Button>
           </div>
           <p className="text-sm text-sage-600 mt-4">
-            By signing up, you agree to receive communications from MindPal. We respect your privacy.
+            {t('privacy_notice')}
           </p>
         </form>
         
@@ -100,7 +101,7 @@ const CTASection = () => {
           <Button 
             className="bg-gradient-to-r from-mindpal-600 to-sage-600 hover:from-mindpal-700 hover:to-sage-700 text-white text-lg px-10 py-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
           >
-            Become a Founder Now
+            {t('become_founder_now')}
           </Button>
         </div>
       </div>

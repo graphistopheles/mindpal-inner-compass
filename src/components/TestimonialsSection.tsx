@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,6 +28,7 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const testimonialsRef = useRef<HTMLDivElement>(null);
@@ -76,7 +78,7 @@ const TestimonialsSection = () => {
           ref={headingRef}
           className="text-3xl md:text-4xl font-serif font-bold mb-16 text-center"
         >
-          Imagine what MindPal can do <span className="gradient-text">for you</span>
+          {t('testimonials_title').split('for you')[0]}<span className="gradient-text">for you</span>
         </h2>
         
         <div 
@@ -114,7 +116,7 @@ const TestimonialsSection = () => {
         
         <div className="mt-16 text-center">
           <p className="text-lg text-sage-700 italic">
-            "These testimonials are hypothetical and represent the potential impact MindPal aims to have on its users."
+            {t('testimonial_disclaimer')}
           </p>
         </div>
       </div>

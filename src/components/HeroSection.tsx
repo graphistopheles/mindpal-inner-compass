@@ -4,8 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { gsap } from 'gsap';
 import { toast } from "sonner";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const HeroSection = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const subheadingRef = useRef<HTMLParagraphElement>(null);
@@ -80,17 +82,16 @@ const HeroSection = () => {
           ref={headingRef}
           className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight mb-6"
         >
-          <span className="gradient-text">Your inner world has a lot to tell you.</span> 
+          <span className="gradient-text">{t('your_inner_world')}</span> 
           <br />
-          <span className="text-sage-700">Are you listening?</span>
+          <span className="text-sage-700">{t('are_you_listening')}</span>
         </h1>
         
         <p 
           ref={subheadingRef}
           className="text-lg md:text-xl text-sage-700 max-w-2xl mx-auto mb-8"
         >
-          Sign up today and be the first to access MindPal. Transform your self-awareness and well-being 
-          with our intelligent emotional journal. <span className="font-medium">Special launch offer.</span>
+          {t('hero_subtitle')}
         </p>
         
         <form 
@@ -100,7 +101,7 @@ const HeroSection = () => {
         >
           <Input
             type="email"
-            placeholder="Enter your email address"
+            placeholder={t('email_placeholder')}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full md:flex-1 h-12 bg-white/80 backdrop-blur-sm border-sage-300 focus:border-mindpal-500"
@@ -110,16 +111,16 @@ const HeroSection = () => {
             type="submit" 
             className="btn-orange w-full sm:w-auto h-12 text-base whitespace-nowrap" 
           >
-            Get Early Access
+            {t('get_early_access')}
           </Button>
         </form>
         
         <div ref={ctaRef} className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <Button className="btn-primary text-base px-8 py-6">
-            Access Now (Limited Offer)
+            {t('access_now')}
           </Button>
           <Button variant="outline" className="text-base px-8 py-6 border-sage-500 text-sage-700 hover:bg-sage-50">
-            Join the Waiting List
+            {t('join_waitlist')}
           </Button>
         </div>
       </div>
