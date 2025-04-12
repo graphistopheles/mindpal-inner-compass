@@ -1,8 +1,10 @@
 
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const FooterSection = () => {
+  const { t } = useLanguage();
   const footerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -34,35 +36,34 @@ const FooterSection = () => {
           <div className="md:col-span-2">
             <div className="font-serif text-2xl font-bold text-white mb-4">MindPal</div>
             <p className="text-sage-300 max-w-md">
-              Your intelligent companion for emotional well-being and self-discovery. 
-              Navigate your inner world with clarity and purpose.
+              {t('footer_description')}
             </p>
           </div>
           
           <div>
-            <h3 className="text-white font-medium mb-4">Quick Links</h3>
+            <h3 className="text-white font-medium mb-4">{t('quick_links')}</h3>
             <ul className="space-y-2">
-              <li><a href="#features" className="text-sage-300 hover:text-white transition-colors">Features</a></li>
-              <li><a href="#pricing" className="text-sage-300 hover:text-white transition-colors">Pricing</a></li>
-              <li><a href="#testimonials" className="text-sage-300 hover:text-white transition-colors">Testimonials</a></li>
-              <li><a href="#faq" className="text-sage-300 hover:text-white transition-colors">FAQ</a></li>
+              <li><a href="#features" className="text-sage-300 hover:text-white transition-colors">{t('features')}</a></li>
+              <li><a href="#pricing" className="text-sage-300 hover:text-white transition-colors">{t('pricing')}</a></li>
+              <li><a href="#testimonials" className="text-sage-300 hover:text-white transition-colors">{t('testimonials')}</a></li>
+              <li><a href="#faq" className="text-sage-300 hover:text-white transition-colors">{t('faq')}</a></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-white font-medium mb-4">Legal</h3>
+            <h3 className="text-white font-medium mb-4">{t('legal')}</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-sage-300 hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-sage-300 hover:text-white transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="text-sage-300 hover:text-white transition-colors">Cookie Policy</a></li>
-              <li><a href="#" className="text-sage-300 hover:text-white transition-colors">Contact Us</a></li>
+              <li><a href="#" className="text-sage-300 hover:text-white transition-colors">{t('privacy_policy')}</a></li>
+              <li><a href="#" className="text-sage-300 hover:text-white transition-colors">{t('terms_of_service')}</a></li>
+              <li><a href="#" className="text-sage-300 hover:text-white transition-colors">{t('cookie_policy')}</a></li>
+              <li><a href="#" className="text-sage-300 hover:text-white transition-colors">{t('contact_us')}</a></li>
             </ul>
           </div>
         </div>
         
         <div className="mt-12 pt-8 border-t border-sage-700 flex flex-col md:flex-row justify-between items-center">
           <div className="text-sage-300 mb-4 md:mb-0">
-            © {currentYear} MindPal. All rights reserved.
+            © {currentYear} MindPal. {t('all_rights_reserved')}
           </div>
           
           <div className="flex space-x-6">
