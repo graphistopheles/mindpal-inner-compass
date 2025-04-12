@@ -1,4 +1,3 @@
-
 export const enTranslations = {
   // Navigation
   'features': 'Features',
@@ -16,6 +15,10 @@ export const enTranslations = {
   'join_waitlist': 'Join the Waiting List',
   'your_inner_world': 'Your inner world has a lot to tell you.',
   'are_you_listening': 'Are you listening?',
+  'valid_email_required': 'Please enter a valid email address',
+  'email_submission_success': 'Thank you for your interest! We\'ll keep you updated.',
+  'email_submission_error': 'There was an issue saving your email. Please try again.',
+  'submitting': 'Submitting...',
 
   // Problem Section
   'problem_title': 'Feeling like your emotions are taking over? You\'re not alone.',

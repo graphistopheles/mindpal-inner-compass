@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { gsap } from 'gsap';
 import { toast } from "sonner";
 import { useLanguage } from '@/contexts/LanguageContext';
+import { saveEmailToGoogleDocs } from '@/utils/googleDocsIntegration';
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -15,19 +16,34 @@ const HeroSection = () => {
   const emailFormRef = useRef<HTMLFormElement>(null);
   
   const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!email || !email.includes('@')) {
-      toast.error('Please enter a valid email address');
+      toast.error(t('valid_email_required') || 'Please enter a valid email address');
       return;
     }
     
-    // Here you would typically send the email to your backend or email service
-    console.log('Email submitted:', email);
-    toast.success('Thank you for your interest! We\'ll keep you updated.');
-    setEmail('');
+    setIsSubmitting(true);
+    
+    try {
+      // Save email to Google Docs
+      const saved = await saveEmailToGoogleDocs(email);
+      
+      if (saved) {
+        toast.success(t('email_submission_success') || 'Thank you for your interest! We\'ll keep you updated.');
+        setEmail('');
+      } else {
+        toast.error(t('email_submission_error') || 'There was an issue saving your email. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error in form submission:', error);
+      toast.error(t('email_submission_error') || 'There was an issue saving your email. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   useEffect(() => {
@@ -109,9 +125,10 @@ const HeroSection = () => {
           />
           <Button 
             type="submit" 
-            className="btn-orange w-full sm:w-auto h-12 text-base whitespace-nowrap" 
+            className="btn-orange w-full sm:w-auto h-12 text-base whitespace-nowrap"
+            disabled={isSubmitting}
           >
-            {t('get_early_access')}
+            {isSubmitting ? t('submitting') || 'Submitting...' : t('get_early_access')}
           </Button>
         </form>
         

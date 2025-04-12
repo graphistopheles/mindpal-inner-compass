@@ -1,10 +1,9 @@
-
 export const esTranslations = {
   // Navigation
   'features': 'Características',
   'benefits': 'Beneficios',
   'pricing': 'Precios',
-  'faq': 'Preguntas Frecuentes',
+  'faq': 'Preguntas frecuentes',
   'become_founder': 'Conviértete en Fundador',
   
   // Hero Section
@@ -16,6 +15,10 @@ export const esTranslations = {
   'join_waitlist': 'Únete a la Lista de Espera',
   'your_inner_world': 'Tu mundo interior tiene mucho que decirte.',
   'are_you_listening': '¿Estás escuchando?',
+  'valid_email_required': 'Por favor, ingresa una dirección de correo válida',
+  'email_submission_success': '¡Gracias por tu interés! Te mantendremos informado.',
+  'email_submission_error': 'Hubo un problema al guardar tu correo. Por favor, inténtalo de nuevo.',
+  'submitting': 'Enviando...',
 
   // Problem Section
   'problem_title': '¿Sientes que tus emociones te dominan? No estás solo.',
