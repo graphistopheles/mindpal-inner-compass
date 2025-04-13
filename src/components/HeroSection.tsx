@@ -6,6 +6,9 @@ import { gsap } from 'gsap';
 import { toast } from "sonner";
 import { useLanguage } from '@/contexts/LanguageContext';
 
+// Add this import at the top
+import heroBackground from '/public/img/hero.avif';
+
 const HeroSection = () => {
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -71,10 +74,18 @@ const HeroSection = () => {
     <section 
       ref={sectionRef} 
       className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden section-padding"
-      style={{
-        background: "linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f6f7f6 100%)"
-      }}
     >
+      <div 
+        className="absolute inset-0" 
+        style={{
+          backgroundImage: `url(${heroBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          opacity: '0.3'
+        }}
+      />
+      
       <div className="absolute inset-0 bg-[url('/lovable-uploads/d9ae9b7a-cd88-4409-9bfa-e7e546ed40af.png')] bg-cover bg-center opacity-40 mix-blend-overlay" />
       
       <div className="relative z-10 max-w-4xl mx-auto text-center">
@@ -115,14 +126,14 @@ const HeroSection = () => {
           </Button>
         </form>
         
-        <div ref={ctaRef} className="flex flex-col sm:flex-row justify-center items-center gap-4">
+{/*         <div ref={ctaRef} className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <Button className="btn-primary text-base px-8 py-6">
             {t('access_now')}
           </Button>
           <Button variant="outline" className="text-base px-8 py-6 border-sage-500 text-sage-700 hover:bg-sage-50">
             {t('join_waitlist')}
           </Button>
-        </div>
+        </div> */}
       </div>
       
       <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">

@@ -22,7 +22,7 @@ const translations = {
     'hero_title': 'Discover the emotional clarity you deserve',
     'hero_subtitle': 'Sign up today and be the first to access MindPal. Transform your self-awareness and well-being with our intelligent emotional journal. Special launch offer.',
     'email_placeholder': 'Enter your email address',
-    'get_early_access': 'Get Early Access',
+    'get_early_access': 'Join the Waitlist',
     'access_now': 'Access Now (Limited Offer)',
     'join_waitlist': 'Join the Waiting List',
     'your_inner_world': 'Your inner world has a lot to tell you.',
@@ -157,7 +157,7 @@ const translations = {
     'hero_title': 'Descubre la claridad emocional que mereces',
     'hero_subtitle': 'Regístrate hoy y sé el primero en acceder a MindPal. Transforma tu autoconocimiento y bienestar con nuestro diario emocional inteligente. Oferta especial de lanzamiento.',
     'email_placeholder': 'Ingresa tu dirección de correo',
-    'get_early_access': 'Obtén Acceso Anticipado',
+    'get_early_access': 'Únete a la Lista de Espera',
     'access_now': 'Accede Ahora (Oferta Limitada)',
     'join_waitlist': 'Únete a la Lista de Espera',
     'your_inner_world': 'Tu mundo interior tiene mucho que decirte.',
@@ -208,7 +208,7 @@ const translations = {
     // Pricing Section
     'pricing_title': 'Sé un MindPal',
     'founder': 'Fundador',
-    'pricing_subtitle': 'Aprovecha nuestra oferta por tiempo limitado "venta verde". Apoya nuestro lanzamiento y asegura tu acceso premium con un descuento irrepetible.',
+    'pricing_subtitle': 'Aprovecha nuestra oferta por tiempo limitado "venta en verde". Apoya nuestro lanzamiento y asegura tu acceso premium con un descuento irrepetible.',
     'annual_access': 'Acceso Anticipado Anual',
     'lifetime_access': 'Acceso Fundador de por Vida',
     'monthly_access': 'Mensual (Post-Lanzamiento)',
@@ -285,7 +285,7 @@ const translations = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>('es');
 
   const t = (key: string): string => {
     return translations[language][key as keyof typeof translations[typeof language]] || key;

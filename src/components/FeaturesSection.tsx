@@ -8,7 +8,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 gsap.registerPlugin(ScrollTrigger);
 
 const FeaturesSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
@@ -47,6 +47,26 @@ const FeaturesSection = () => {
     }
   }, []);
 
+  // Helper function to properly handle the title with the highlighted text
+  const renderTitle = () => {
+    if (language === 'en') {
+      const parts = t('features_title').split('understanding');
+      return (
+        <>
+          {parts[0]}<span className="gradient-text">understanding</span>
+        </>
+      );
+    } else {
+      // For Spanish, split by "transformación" to properly highlight it
+      const esTitle = t('features_title').split('comprender');
+      return (
+        <>
+          {esTitle[0]}<span className="gradient-text">comprender</span>
+        </>
+      );
+    }
+  };
+
   return (
     <section 
       ref={sectionRef}
@@ -58,7 +78,8 @@ const FeaturesSection = () => {
           ref={headingRef}
           className="text-3xl md:text-4xl font-serif font-bold mb-16 text-center"
         >
-          {t('features_title').split('understanding')[0]}<span className="gradient-text">understanding</span>
+          {/* {t('features_title').split('understanding')[0]}<span className="gradient-text">understanding</span> */}
+          {renderTitle()}
         </h2>
         
         <div 

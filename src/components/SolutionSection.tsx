@@ -5,6 +5,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+// Add this import at the top with other imports
+import mindImage from '/public/img/mind.svg';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const SolutionSection = () => {
@@ -91,15 +94,18 @@ const SolutionSection = () => {
         </div>
         
         <div ref={imageRef} className="order-1 md:order-2 relative">
-          <div className="bg-gradient-to-br from-mindpal-100 to-cream-100 rounded-3xl shadow-xl p-8 aspect-square flex items-center justify-center">
-            <div className="w-48 h-48 bg-mindpal-200 rounded-full flex items-center justify-center animate-pulse-slow">
-              <span className="font-serif text-4xl text-mindpal-700">MindPal</span>
-            </div>
+          <div className="bg-gradient-to-br from-mindpal-100 to-cream-100 rounded-3xl shadow-xl aspect-square flex items-center justify-center">
+            <img 
+              src={mindImage} 
+              alt="MindPal Visualization" 
+              className="w-full h-full object-cover rounded-2xl"
+            />
             
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-cream-200 rounded-full animate-float"></div>
             <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-mindpal-300 rounded-full animate-float" style={{ animationDelay: "1s" }}></div>
           </div>
         </div>
+        
       </div>
     </section>
   );

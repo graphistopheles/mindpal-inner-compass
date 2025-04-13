@@ -32,22 +32,22 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
-        <a href="#" className="font-serif text-2xl font-bold text-sage-800">
+        <a href="#" className="font-serif text-2xl font-bold text-sage-800 whitespace-nowrap">
           Mind<span className="text-mindpal-600">Pal</span>
         </a>
         
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-6">
           <div className="flex space-x-6">
-            <a href="#features" className="text-sage-700 hover:text-mindpal-600 transition-colors">{t('features')}</a>
-            <a href="#benefits" className="text-sage-700 hover:text-mindpal-600 transition-colors">{t('benefits')}</a>
-            <a href="#pricing" className="text-sage-700 hover:text-mindpal-600 transition-colors">{t('pricing')}</a>
-            <a href="#faq" className="text-sage-700 hover:text-mindpal-600 transition-colors">{t('faq')}</a>
+            <a href="#features" className="text-sage-700 hover:text-mindpal-600 transition-colors whitespace-nowrap text-sm">{t('features')}</a>
+            <a href="#benefits" className="text-sage-700 hover:text-mindpal-600 transition-colors whitespace-nowrap text-sm">{t('benefits')}</a>
+            <a href="#pricing" className="text-sage-700 hover:text-mindpal-600 transition-colors whitespace-nowrap text-sm">{t('pricing')}</a>
+            <a href="#faq" className="text-sage-700 hover:text-mindpal-600 transition-colors whitespace-nowrap text-sm">{t('faq')}</a>
           </div>
           
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-4">
             <LanguageSwitcher />
-            <Button className="btn-primary">
+            <Button className="btn-primary whitespace-nowrap text-sm px-4">
               {t('become_founder')}
             </Button>
           </div>
@@ -72,7 +72,7 @@ const Navbar = () => {
           <div className="flex flex-col space-y-4">
             <a 
               href="#features" 
-              className="text-sage-700 hover:text-mindpal-600 transition-colors py-2"
+              className="text-sage-700 hover:text-mindpal-600 transition-colors py-2 text-sm"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('features')}
