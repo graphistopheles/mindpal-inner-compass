@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { X, Menu } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Link } from 'react-scroll';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
