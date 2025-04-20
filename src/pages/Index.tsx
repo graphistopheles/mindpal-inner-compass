@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
+import ImproveSection from '@/components/ImproveSection';
 import ProblemSection from '@/components/ProblemSection';
 import SolutionSection from '@/components/SolutionSection';
 import FeaturesSection from '@/components/FeaturesSection';
@@ -49,6 +50,7 @@ const Index = () => {
       <SolutionSection />
       <FeaturesSection />
       <BenefitsSection />
+      <ImproveSection />
       <PricingSection />
       <TestimonialsSection />
       <AffiliateSection />

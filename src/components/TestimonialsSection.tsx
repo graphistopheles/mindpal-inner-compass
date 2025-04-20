@@ -160,11 +160,11 @@ const TestimonialsSection = () => {
           ))}
         </div>
         
-        <div className="mt-16 text-center">
+{/*         <div className="mt-16 text-center">
           <p className="text-lg text-sage-700 italic">
             {t('testimonial_disclaimer')}
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   );

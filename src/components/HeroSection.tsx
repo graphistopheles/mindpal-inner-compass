@@ -112,7 +112,7 @@ const HeroSection = () => {
           ref={headingRef}
           className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight mb-6"
         >
-          <span className="gradient-text">{t('your_inner_world')}</span> 
+           <span className="gradient-text">{t('your_inner_world')}</span> 
           <br />
           <span className="text-sage-700">{t('are_you_listening')}</span>
         </h1>
@@ -121,7 +121,7 @@ const HeroSection = () => {
           ref={subheadingRef}
           className="text-lg md:text-xl text-sage-700 max-w-2xl mx-auto mb-8"
         >
-          {t('hero_subtitle')}
+           {t('hero_subtitle')}
         </p>
         
         <form 

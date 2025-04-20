@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 // Add this import at the top with other imports
-import mindImage from '/public/img/solution.svg';
+import mindImage from '/public/img/improve.svg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,17 +48,17 @@ const SolutionSection = () => {
   return (
     <section 
       ref={sectionRef}
-      id="solution" 
+      id="improve" 
       className="section-padding bg-white"
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div ref={contentRef} className="order-2 md:order-1">
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
-            <span className="gradient-text">MindPal:</span> {t('solution_title')}
+            <span className="gradient-text">MindPal:</span> {t('improve_title')}
           </h2>
           
           <p className="text-lg text-sage-700 mb-6">
-            {t('solution_text')}
+            {t('improve_text')}
           </p>
           
           <ul className="space-y-4 mb-8">
@@ -68,7 +68,7 @@ const SolutionSection = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <p className="text-sage-700">{t('solution_point1')}</p>
+              <p className="text-sage-700">{t('improve_point1')}</p>
             </li>
             <li className="flex items-start">
               <div className="mr-4 mt-1 text-mindpal-500">
@@ -76,7 +76,7 @@ const SolutionSection = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <p className="text-sage-700">{t('solution_point2')}</p>
+              <p className="text-sage-700">{t('improve_point2')}</p>
             </li>
             <li className="flex items-start">
               <div className="mr-4 mt-1 text-mindpal-500">
@@ -84,12 +84,12 @@ const SolutionSection = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <p className="text-sage-700">{t('solution_point3')}</p>
+              <p className="text-sage-700">{t('improve_point3')}</p>
             </li>
           </ul>
           
           <Button className="btn-secondary">
-            {t('discover_how')}
+            {t('start_today')}
           </Button>
         </div>
         

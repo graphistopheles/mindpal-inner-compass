@@ -20,7 +20,7 @@ const translations = {
     
     // Hero Section
     'hero_title': 'Discover the emotional clarity you deserve',
-    'hero_subtitle': 'Sign up today and be the first to access MindPal. Transform your self-awareness and well-being with our intelligent emotional journal. Special launch offer.',
+    'hero_subtitle': 'Sign up today and be the first to access MindPal. Find calm and inner peace by writing down your emotions every day. A space just for you, where your thoughts are ordered and your mind is clear. Special launch offer.',
     'email_placeholder': 'Enter your email address',
     'get_early_access': 'Join the Waitlist',
     'access_now': 'Access Now (Limited Offer)',
@@ -45,6 +45,14 @@ const translations = {
     'solution_point2': 'Intelligent insights that evolve with you',
     'solution_point3': 'Simple tools to navigate complex emotions',
     'discover_how': 'Discover how it works',
+
+        // Improve Section
+        'improve_title': 'Daily support for your mental health',
+        'improve_text': 'Start today. Give yourself a few minutes a day to come back to you.',
+        'improve_point1': 'We know about today\'s fast-paced environment, where it is not easy to feel connected to oneself.',
+        'improve_point2': 'Stress, anxiety or just plain confusion can cloud daily life.',
+        'improve_point3': 'Understanding your emotions is the first step towards a fuller and more conscious life.',
+        'start_today': 'Start Today',
 
     // Features Section
     'features_title': 'As simple as feeling, as powerful as understanding',
@@ -155,13 +163,22 @@ const translations = {
     
     // Hero Section
     'hero_title': 'Descubre la claridad emocional que mereces',
-    'hero_subtitle': 'Regístrate hoy y sé el primero en acceder a MindPal. Transforma tu autoconocimiento y bienestar con nuestro diario emocional inteligente. Oferta especial de lanzamiento.',
+    'hero_subtitle': 'Regístrate hoy y sé el primero en acceder a MindPal. Encuentra calma y paz interior escribiendo tus emociones cada día. Un espacio solo para ti, donde tus pensamientos se ordenan y tu mente se aclara. Oferta especial de lanzamiento.',
     'email_placeholder': 'Ingresa tu dirección de correo',
     'get_early_access': 'Únete a la Lista de Espera',
     'access_now': 'Accede Ahora (Oferta Limitada)',
     'join_waitlist': 'Únete a la Lista de Espera',
     'your_inner_world': 'Tu mundo interior tiene mucho que decirte.',
-    'are_you_listening': '¿Estás escuchando?',
+    'are_you_listening': '¿Lo estás escuchando?',
+
+
+            // Improve Section
+            'improve_title': 'Apoyo diario para tu salud mental',
+            'improve_text': 'Regálate unos minutos al día para volver a ti.',
+            'improve_point1': 'Sabemos del acelerado entorno actual, donde no es fácil sentirse conectado con uno mismo.',
+            'improve_point2': 'El estrés, la ansiedad o simplemente la confusión pueden nublar cada día de tu vida.',
+            'improve_point3': 'Comprender tus emociones es el primer paso hacia una vida más plena y consciente.',
+            'start_today': 'Empieza Hoy',
 
     // Problem Section
     'problem_title': '¿Sientes que tus emociones te dominan? No estás solo.',
