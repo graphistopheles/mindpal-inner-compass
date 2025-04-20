@@ -5,6 +5,8 @@ import { Input } from '@/components/ui/input';
 import { gsap } from 'gsap';
 import { toast } from "sonner";
 import { useLanguage } from '@/contexts/LanguageContext';
+import { saveEmailToGoogleDocs } from '@/utils/googleDocsIntegration';
+import { Link } from 'react-scroll';
 
 // Add this import at the top
 import heroBackground from '/public/img/hero.avif';
@@ -18,19 +20,34 @@ const HeroSection = () => {
   const emailFormRef = useRef<HTMLFormElement>(null);
   
   const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!email || !email.includes('@')) {
-      toast.error('Please enter a valid email address');
+      toast.error(t('valid_email_required') || 'Please enter a valid email address');
       return;
     }
     
-    // Here you would typically send the email to your backend or email service
-    console.log('Email submitted:', email);
-    toast.success('Thank you for your interest! We\'ll keep you updated.');
-    setEmail('');
+    setIsSubmitting(true);
+    
+    try {
+      // Save email to Google Docs
+      const saved = await saveEmailToGoogleDocs(email);
+      
+      if (saved) {
+        toast.success(t('email_submission_success') || 'Thank you for your interest! We\'ll keep you updated.');
+        setEmail('');
+      } else {
+        toast.error(t('email_submission_error') || 'There was an issue saving your email. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error in form submission:', error);
+      toast.error(t('email_submission_error') || 'There was an issue saving your email. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   useEffect(() => {
@@ -74,6 +91,7 @@ const HeroSection = () => {
     <section 
       ref={sectionRef} 
       className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden section-padding"
+      id="hero"  // Add this id
     >
       <div 
         className="absolute inset-0" 
@@ -136,10 +154,17 @@ const HeroSection = () => {
         </div> */}
       </div>
       
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <svg className="w-8 h-8 text-mindpal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+        <Link 
+          to="features" 
+          smooth={true} 
+          duration={800} 
+          className="cursor-pointer"
+        >
+          <svg className="w-8 h-8 text-mindpal-600 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </Link>
       </div>
     </section>
   );
