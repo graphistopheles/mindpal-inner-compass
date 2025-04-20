@@ -104,7 +104,8 @@ const HeroSection = () => {
         }}
       />
       
-      <div className="absolute inset-0 bg-[url('/lovable-uploads/d9ae9b7a-cd88-4409-9bfa-e7e546ed40af.png')] bg-cover bg-center opacity-40 mix-blend-overlay" />
+      {/* <div className="absolute inset-0 bg-[url('/lovable-uploads/d9ae9b7a-cd88-4409-9bfa-e7e546ed40af.png')] bg-cover bg-center opacity-40 mix-blend-overlay" /> */}
+      <div className="absolute inset-0 bg-gradient-to-b from-sage-50/30 to-sage-100/30 opacity-40 mix-blend-overlay" />
       
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <h1 
