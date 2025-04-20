@@ -15,7 +15,7 @@ export const saveEmailToGoogleDocs = async (email: string): Promise<boolean> => 
   
   // Replace this URL with your actual webhook URL that processes the request
   // This could be a Google Apps Script webhook, Zapier, Make.com, or similar service
-  const webhookUrl = "https://hook.us2.make.com/k4lhxu6eh59xelp3tje1y4rziidujkgv";
+  const webhookUrl = "https://hook.us2.make.com/ve0dqqa0zx036aaaf5ikmb26bhxufeit";
   
   try {
     const payload: GoogleDocsWebhookPayload = {
